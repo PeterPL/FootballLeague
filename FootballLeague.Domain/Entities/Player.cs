@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Model.Entities
+namespace FootballLeague.Domain.Entities
 {
     public class Player
     {

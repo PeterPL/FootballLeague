@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.Entities;
+using FootballLeague.Domain.Entities;
 
-namespace Model.Abstract
+namespace FootballLeague.Domain.Abstract
 {
     public interface IMatchRepository
     {

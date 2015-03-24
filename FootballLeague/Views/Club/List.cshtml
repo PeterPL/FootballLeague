@@ -1,0 +1,14 @@
+﻿@model IQueryable<FootballLeague.Domain.Entities.Club>
+
+@{
+    ViewBag.Title = "Lista klubów";
+}
+
+<h2>Kluby:</h2>
+
+@foreach (var c in Model)
+{
+    <div class ="item">
+    <h3>@c.Name</h3>
+    </div>
+}

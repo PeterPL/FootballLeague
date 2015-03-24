@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Model.Abstract;
-using Model.Entities;
+using FootballLeague.Domain.Abstract;
+using FootballLeague.Domain.Entities;
 
-namespace Model.Concrete
+namespace FootballLeague.Domain.Concrete
 {
     public class EFMatchRepository:IMatchRepository
     {

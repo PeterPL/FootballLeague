@@ -1,8 +1,8 @@
 ﻿
 using System.Linq;
-using Model.Entities;
+using FootballLeague.Domain.Entities;
 
-namespace Model.Abstract
+namespace FootballLeague.Domain.Abstract
 {
     public interface IPositionRepository
     {
