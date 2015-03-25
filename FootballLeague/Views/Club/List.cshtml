@@ -2,13 +2,39 @@
 
 @{
     ViewBag.Title = "Lista klubów";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+<h3>Tabela</h3>
 
-<h2>Kluby:</h2>
+<table class ="table table-striped table-hover table-responsive table-bordered">
+    <thead>
+        <th>L.p.</th>
+        <th>Klub</th>
+        <th>M</th>
+        <th>Pkt</th>
+        <th>W</th>
+        <th>R</th>
+        <th>P</th>
+        <th>B+</th>
+        <th>B-</th>
 
-@foreach (var c in Model)
-{
-    <div class ="item">
-    <h3>@c.Name</h3>
-    </div>
-}
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td class="col-md-1">@c.Id</td>
+                <td class ="col-md-1">@c.Name</td>
+                <td class ="col md-1">@c.Played</td>
+                <td class ="col md-1">@c.Points</td>
+                <td class ="col md-1">@c.Won</td>
+                <td class ="col md-1">@c.Drawn</td>
+                <td class ="col md-1">@c.Lost</td>
+                <td class ="col md-1">@c.GoalsFor</td>
+                <td class ="col md-1">@c.GoalsAgainst</td>
+            </tr>
+        }
+    </tbody>
+   
+    
+</table>

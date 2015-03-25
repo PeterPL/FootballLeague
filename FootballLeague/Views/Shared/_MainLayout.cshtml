@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap_superhero.css" />
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+   
+</head>
+<body>
+     <div class="navbar navbar-inverse" style="z-index: 999; position: fixed;top:0;width:100%;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Ligi</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-inverse-collapse">
+    <ul class="nav navbar-nav">
+    </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong></strong><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li></li>
+                        <li class="divider"></li>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    @RenderBody()
+        
+
+</body>
