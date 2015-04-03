@@ -1,40 +1,38 @@
-﻿@model IQueryable<FootballLeague.Domain.Entities.Club>
+﻿@using System.Net.Mime
+@using System.Web.UI.WebControls
+@using FootballLeague.Controllers
+@using FootballLeague.Domain.Entities
+@using GridMvc.Html
+@model IQueryable<FootballLeague.Domain.Entities.Club>
 
 @{
     ViewBag.Title = "Lista klubów";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 <h3>Tabela</h3>
-
-<table class ="table table-striped table-hover table-responsive table-bordered">
-    <thead>
-        <th>L.p.</th>
-        <th>Klub</th>
-        <th>M</th>
-        <th>Pkt</th>
-        <th>W</th>
-        <th>R</th>
-        <th>P</th>
-        <th>B+</th>
-        <th>B-</th>
-
-    </thead>
-    <tbody>
-        @foreach (var c in Model)
+<div class="container">
+@{
+    try
+    {
+        @Html.Grid(Model).Columns(columns =>
         {
-            <tr>
-                <td class="col-md-1">@c.Id</td>
-                <td class ="col-md-1">@c.Name</td>
-                <td class ="col md-1">@c.Played</td>
-                <td class ="col md-1">@c.Points</td>
-                <td class ="col md-1">@c.Won</td>
-                <td class ="col md-1">@c.Drawn</td>
-                <td class ="col md-1">@c.Lost</td>
-                <td class ="col md-1">@c.GoalsFor</td>
-                <td class ="col md-1">@c.GoalsAgainst</td>
-            </tr>
-        }
-    </tbody>
-   
-    
-</table>
+
+            columns.Add(club => club.Name).Titled("Nazwa").Filterable(true).Encoded(false).Sanitized(false)
+                .RenderValueAs(club => Html.ActionLink(club.Name, "Details", "Club", new { Name = club.Name }, new { style = "text-decoration:none" }));
+            columns.Add(club => club.Points).Titled("Pkt");
+            columns.Add(club => club.Played).Titled("M");
+            columns.Add(club => club.Won).Titled("Z");
+            columns.Add(club => club.Drawn).Titled("R");
+            columns.Add(club => club.Lost).Titled("P");
+            columns.Add(club => club.GoalsFor).Titled("B+");
+            columns.Add(club => club.GoalsAgainst).Titled("B-");
+
+        }).Sortable(true)
+    }
+    catch
+    {
+    }
+}
+
+    </div>
+

@@ -1,0 +1,28 @@
+﻿@using FootballLeague.Domain.Entities
+@using GridMvc.Html
+@model IQueryable<FootballLeague.Domain.Entities.Match>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Mecze</h2>
+<div class="container">
+    
+    @{
+        try
+        {
+            @Html.Grid(Model).Columns(columns =>
+            {
+                columns.Add(match => match.Home).Titled("Gospodarze");
+                columns.Add(match => match.AwayGoals).Titled("Goście");
+                columns.Add(match => match.HomeGoals + ":" + match.AwayGoals).Titled("Wynik");
+            })
+        }
+        catch
+        {
+        }
+    }
+    
+</div>

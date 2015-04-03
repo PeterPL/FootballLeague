@@ -10,5 +10,6 @@ namespace FootballLeague.Domain.Abstract
     public interface IPlayerRepository
     {
         IQueryable<Player> Players { get; }
+        void AddPlayer(Player player);
     }
 }

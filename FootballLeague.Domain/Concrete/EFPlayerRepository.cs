@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using FootballLeague.Domain.Abstract;
 using FootballLeague.Domain.Entities;
+using System.Data.Entity;
 
 namespace FootballLeague.Domain.Concrete
 {
@@ -13,6 +15,11 @@ namespace FootballLeague.Domain.Concrete
         public IQueryable<Player> Players
         {
             get { return context.Players; }
+        }
+
+        public void AddPlayer(Player player)
+        {
+            
         }
     }
 }

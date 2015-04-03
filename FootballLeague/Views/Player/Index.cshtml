@@ -1,0 +1,36 @@
+﻿@using System.Net.Mime
+@using FootballLeague.Domain.Entities
+@using GridMvc.Html
+@model IQueryable<FootballLeague.Domain.Entities.Player>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Zawodnicy
+    <span id="addOrderTlp" data-toggle="tooltip" data-placement="bottom" title="Kliknij, aby dodać zawodnika">
+                          <button type="submit" onclick="location.href='@Url.Action("CreatePlayer", "Player")'" value="Dodaj" id="addOrder" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+                              <span class="glyphicon glyphicon-plus"></span>
+
+                          </button>
+                      </span>
+</h2>
+<div class="container">
+    @{
+        try
+        {
+            @Html.Grid(Model).Columns(columns =>
+            {
+                columns.Add(player => player.FirstName).Titled("Imię");
+                columns.Add(player => player.LastName).Titled("Nazwisko");
+                columns.Add(player => player.Club.Name).Titled("Klub").Sanitized(false).Encoded(false).RenderValueAs(player => @Html.ActionLink(player.Club.Name, "Details", "Club", new {Name = player.Club.Name}, new {style = "text-decoration:none"}));
+                columns.Add(player => player.Position.Name).Titled("Pozycja");
+            })
+        }
+        catch
+        {
+        }
+    }
+
+</div>
