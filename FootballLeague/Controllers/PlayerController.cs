@@ -42,7 +42,7 @@ namespace FootballLeague.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ViewResult CreatePlayer(Player player)
+        public ActionResult CreatePlayer(Player player)
         {
             if (ModelState.IsValid)
             {
@@ -55,8 +55,9 @@ namespace FootballLeague.Controllers
                 player.Club = club;
                 player.Position = position;
 
-                
+               _repository.AddPlayer(player);
             }
+            return RedirectToAction("Index");
         }
 
     }

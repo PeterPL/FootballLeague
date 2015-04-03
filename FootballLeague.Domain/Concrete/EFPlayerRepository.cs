@@ -19,7 +19,8 @@ namespace FootballLeague.Domain.Concrete
 
         public void AddPlayer(Player player)
         {
-            
+            context.Players.Add(player);
+            context.SaveChanges();
         }
     }
 }
